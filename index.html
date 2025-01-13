@@ -36,6 +36,26 @@
 </head>
 <body>
     <h1>Group Material Tracker</h1>
+
+    <form id="materialForm">
+        <label for="personName">Person Name:</label>
+        <input type="text" id="personName" required>
+
+        <label for="materialName">Material Needed:</label>
+        <input type="text" id="materialName" required>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" min="1" required>
+
+        <label for="ordered">Ordered:</label>
+        <select id="ordered">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <button type="button" onclick="addRequirement()">Add Requirement</button>
+    </form>
+
     <table>
         <thead>
             <tr>
@@ -61,8 +81,33 @@
                 <td>No</td>
                 <td class="status-pending">No</td>
             </tr>
-            <!-- Add more rows as needed -->
+            <!-- New rows will be added here dynamically -->
         </tbody>
     </table>
+
+    <script>
+        function addRequirement() {
+            const personName = document.getElementById('personName').value;
+            const materialName = document.getElementById('materialName').value;
+            const quantity = document.getElementById('quantity').value;
+            const ordered = document.getElementById('ordered').value;
+
+            const table = document.querySelector('table tbody');
+            const row = document.createElement('tr');
+
+            row.innerHTML = `
+                <td>${personName}</td>
+                <td>${materialName}</td>
+                <td>${quantity}</td>
+                <td>${ordered}</td>
+                <td class="${ordered === 'Yes' ? 'status-received' : 'status-pending'}">${ordered === 'Yes' ? 'Yes' : 'No'}</td>
+            `;
+            
+            table.appendChild(row);
+
+            // Clear form inputs
+            document.getElementById('materialForm').reset();
+        }
+    </script>
 </body>
 </html>
