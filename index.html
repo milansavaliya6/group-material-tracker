@@ -32,6 +32,17 @@
             background-color: #f8d7da;
             color: #721c24;
         }
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
     </style>
 </head>
 <body>
@@ -64,6 +75,7 @@
                 <th>Quantity</th>
                 <th>Ordered (Yes/No)</th>
                 <th>Received (Yes/No)</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -73,6 +85,7 @@
                 <td>5</td>
                 <td>Yes</td>
                 <td class="status-received">Yes</td>
+                <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
             </tr>
             <tr>
                 <td>Person 2</td>
@@ -80,6 +93,7 @@
                 <td>3</td>
                 <td>No</td>
                 <td class="status-pending">No</td>
+                <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
             </tr>
             <!-- New rows will be added here dynamically -->
         </tbody>
@@ -101,12 +115,18 @@
                 <td>${quantity}</td>
                 <td>${ordered}</td>
                 <td class="${ordered === 'Yes' ? 'status-received' : 'status-pending'}">${ordered === 'Yes' ? 'Yes' : 'No'}</td>
+                <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
             `;
             
             table.appendChild(row);
 
             // Clear form inputs
             document.getElementById('materialForm').reset();
+        }
+
+        function deleteRow(button) {
+            const row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
         }
     </script>
 </body>
