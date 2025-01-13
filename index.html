@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Material Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .status-received {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status-pending {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <h1>Group Material Tracker</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Person Name</th>
+                <th>Material Needed</th>
+                <th>Quantity</th>
+                <th>Ordered (Yes/No)</th>
+                <th>Received (Yes/No)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Person 1</td>
+                <td>Material A</td>
+                <td>5</td>
+                <td>Yes</td>
+                <td class="status-received">Yes</td>
+            </tr>
+            <tr>
+                <td>Person 2</td>
+                <td>Material B</td>
+                <td>3</td>
+                <td>No</td>
+                <td class="status-pending">No</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</body>
+</html>
